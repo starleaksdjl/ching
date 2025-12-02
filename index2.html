@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Comercial | Cerdo Chingón</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-black': '#121212',
+                        'brand-dark': '#1E1E1E',
+                        'brand-orange': '#FF5E14',
+                        'brand-yellow': '#FFC107',
+                        'brand-gray': '#2D2D2D',
+                    },
+                    fontFamily: {
+                        'title': ['Bebas Neue', 'cursive'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        #bg-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Un poco más oscuro para que resalte el Cerdo */
+            z-index: 0;
+        }
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Animations */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-500 { animation-delay: 0.5s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hover-scale {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 20px rgba(255, 94, 20, 0.2);
+        }
+
+        .neon-border {
+            box-shadow: 0 0 5px #FF5E14, 0 0 10px #FF5E14;
+        }
+        
+        .fire-text {
+            background: -webkit-linear-gradient(#FFC107, #FF5E14);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1E1E1E; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FF5E14; 
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-orange selection:text-white">
+
+    <!-- Navbar Sticky -->
+    <nav class="fixed top-0 w-full z-50 bg-brand-black/90 backdrop-blur-md border-b border-brand-gray py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="text-2xl font-title tracking-widest text-brand-orange">
+                NOXUM <span class="text-white">SOLUCIONES</span>
+            </div>
+            <a href="#contacto" class="hidden md:block bg-brand-orange text-white px-6 py-2 rounded-full font-bold hover:bg-white hover:text-brand-orange transition-colors">
+                Iniciar Proyecto
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="video-container flex items-center justify-center text-center px-4">
+        
+        <!-- VIDEO DE FONDO -->
+        <video autoplay muted loop playsinline id="bg-video" poster="https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=1000&auto=format&fit=crop">
+            <!-- TU ARCHIVO LOCAL AQUÍ -->
+            <source src="video.mp4" type="video/mp4">
+            Tu navegador no soporta video.
+        </video>
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <!-- CAMBIAR IMAGEN DE FONDO AQUÍ: Busca el atributo src="..." y pega tu link -->
+            <img src="https://images.unsplash.com/photo-1544025162-d76690b67f66?q=80&w=2000&auto=format&fit=crop" 
+                 alt="Cerdo Chingón Background" 
+                 class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/80 to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="inline-block bg-brand-orange/20 border border-brand-orange px-4 py-1 rounded-full text-brand-orange font-bold text-sm mb-6 fade-in-up">
+                PROPUESTA COMERCIAL DIGITAL
+            </div>
+            <h1 class="text-6xl md:text-8xl font-title mb-4 fade-in-up delay-100">
+                CERDO <br><span class="fire-text">CHINGÓN</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-10 fade-in-up delay-200">
+                No es solo comida rápida. Es una experiencia visual, tecnológica y deliciosa. Llevamos tu marca al siguiente nivel.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center fade-in-up delay-300">
+                <a href="#marketing" class="bg-brand-orange text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-brand-orange transition-all transform hover:-translate-y-1 shadow-lg shadow-brand-orange/30">
+                    <i class="fa-solid fa-camera mr-2"></i> Ver Planes de Contenido
+                </a>
+                <a href="#tecnologia" class="border border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-brand-black transition-all">
+                    <i class="fa-solid fa-microchip mr-2"></i> Ver Tecnología
+                </a>
+            </div>
+        </div>
+        </div>
+    </header>
+
+    <!-- Marketing Section -->
+    <section id="marketing" class="py-20 bg-brand-dark relative">
+        <div class="absolute top-0 right-0 -mt-20 opacity-10 pointer-events-none">
+            <i class="fa-solid fa-burger text-9xl text-brand-orange"></i>
+        </div>
+
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-title text-white mb-4">Contenido que <span class="text-brand-orange">Antoja</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Producción audiovisual profesional diseñada para TikTok e Instagram. Incluye análisis de tendencias, calendario estratégico y hashtags virales.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <!-- Plan STARTUP -->
+                <div class="bg-brand-gray p-8 rounded-2xl border border-gray-700 hover-scale relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 bg-gray-600 text-xs font-bold px-3 py-1 rounded-bl-lg text-white">INICIAL</div>
+                    <h3 class="text-4xl font-title mb-2">Plan STARTUP</h3>
+                    <div class="text-3xl font-bold text-brand-orange mb-6">$378.000 <span class="text-sm text-gray-400 font-normal">/ mes</span></div>
+                    
+                    <ul class="space-y-4 mb-8 text-gray-300">
+                        <li class="flex items-start"><i class="fa-solid fa-camera text-brand-yellow mt-1 mr-3"></i> <span><strong>4 Fotos Pro</strong> (2 galerías de 2 fotos)</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-video text-brand-yellow mt-1 mr-3"></i> <span><strong>1 Video Explicativo</strong> (Reels/TikTok 1:30 min)</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-bolt text-brand-yellow mt-1 mr-3"></i> <span><strong>1 Video Corto</strong> (Impacto rápido 10-20 seg)</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-chart-line text-brand-orange mt-1 mr-3"></i> <span>Estrategia de Hashtags + Calendario</span></li>
+                    </ul>
+                    <button class="w-full py-3 rounded-lg border border-brand-orange text-brand-orange font-bold hover:bg-brand-orange hover:text-white transition-colors">Seleccionar Startup</button>
+                </div>
+
+                <!-- Plan MICRO -->
+                <div class="bg-brand-black p-8 rounded-2xl border-2 border-brand-orange hover-scale relative overflow-hidden shadow-2xl shadow-brand-orange/10">
+                    <div class="absolute top-0 right-0 bg-brand-orange text-xs font-bold px-3 py-1 rounded-bl-lg text-white">RECOMENDADO</div>
+                    <h3 class="text-4xl font-title mb-2">Plan MICRO</h3>
+                    <div class="text-3xl font-bold text-brand-orange mb-6">$670.000 <span class="text-sm text-gray-400 font-normal">/ mes</span></div>
+                    
+                    <ul class="space-y-4 mb-8 text-white">
+                        <li class="flex items-start"><i class="fa-solid fa-camera text-brand-yellow mt-1 mr-3"></i> <span><strong>8 Fotos Pro</strong> (Flexibles: 4 galerías de 2 o 2 de 4)</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-video text-brand-yellow mt-1 mr-3"></i> <span><strong>2 Videos Explicativos</strong> (Storytelling/Proceso)</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-bolt text-brand-yellow mt-1 mr-3"></i> <span><strong>2 Videos Cortos</strong> (Transiciones/Antojo)</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-bullseye text-brand-orange mt-1 mr-3"></i> <span>Análisis profundo de Redes + Temáticas Virales</span></li>
+                    </ul>
+                    <button class="w-full py-3 rounded-lg bg-brand-orange text-white font-bold hover:bg-brand-yellow hover:text-black transition-colors">Seleccionar Micro</button>
+                </div>
+
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-sm text-gray-500 bg-brand-black/50 inline-block px-4 py-2 rounded-full border border-gray-700">
+                    <i class="fa-solid fa-circle-info mr-2"></i> El contenido es flexible. Tú decides qué productos destacar cada mes.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Section -->
+    <section id="tecnologia" class="py-20 bg-brand-black">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12 mb-20">
+                <div class="md:w-1/2">
+                    <div class="inline-block bg-blue-500/20 text-blue-400 font-bold px-3 py-1 rounded mb-4 text-xs">TRANSFORMACIÓN DIGITAL</div>
+                    <h2 class="text-5xl font-title mb-6">Tu Menú, <br><span class="text-brand-yellow">Tu Máquina de Ventas</span></h2>
+                    <p class="text-gray-400 text-lg mb-6">
+                        No es solo mostrar precios. Es un sistema diseñado para convertir visitantes en clientes hambrientos.
+                    </p>
+                    
+                    <div class="bg-brand-dark p-6 rounded-xl border-l-4 border-brand-yellow mb-6">
+                        <h4 class="text-xl font-bold text-white mb-2">Landing Page / Menú Digital</h4>
+                        <p class="text-gray-400 text-sm mb-4">Diseño responsivo, fotos de alta calidad, botones de pedido directo a WhatsApp.</p>
+                        <div class="text-2xl font-bold text-brand-yellow">$330.000 <span class="text-xs text-gray-500 font-normal">Pago único</span></div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <!-- Placeholder for Phone Mockup -->
+                    <div class="relative z-10 bg-brand-gray rounded-3xl p-4 shadow-2xl border-4 border-gray-800 rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=800&auto=format&fit=crop" class="rounded-xl w-full h-64 object-cover mb-4" alt="Burger App">
+                        <div class="h-4 w-1/3 bg-brand-orange rounded mb-2"></div>
+                        <div class="h-4 w-2/3 bg-gray-600 rounded"></div>
+                        <div class="mt-4 flex gap-2">
+                             <div class="h-10 w-full bg-brand-orange rounded-lg flex items-center justify-center text-white font-bold text-sm">PEDIR AHORA</div>
+                        </div>
+                    </div>
+                    <!-- Decorative Circle -->
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-orange/20 rounded-full blur-3xl"></div>
+                </div>
+            </div>
+
+            <!-- Automation & POS Grid -->
+            <h3 class="text-3xl font-title text-center mb-10">Automatización & <span class="text-brand-orange">Control Total</span></h3>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Card 1: Bot Pedidos -->
+                <div class="bg-brand-dark p-6 rounded-xl border border-gray-800 hover:border-blue-500 transition-colors group">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-500 transition-colors">
+                        <i class="fa-brands fa-whatsapp text-blue-500 group-hover:text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Bot de Pedidos IA</h4>
+                    <p class="text-gray-400 text-sm">Respuestas naturales automáticas. Toma pedidos, responde preguntas sobre ingredientes y horarios 24/7 sin intervención humana.</p>
+                </div>
+
+                <!-- Card 2: Bot Fidelización (New Idea) -->
+                <div class="bg-brand-dark p-6 rounded-xl border border-gray-800 hover:border-purple-500 transition-colors group">
+                    <div class="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-purple-500 transition-colors">
+                        <i class="fa-solid fa-gift text-purple-500 group-hover:text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Bot de "Antojo"</h4>
+                    <p class="text-gray-400 text-sm">Automatización de re-marketing. Envía cupones de cumpleaños o promociones flash a clientes que no han comprado en 15 días.</p>
+                </div>
+
+                <!-- Card 3: Sistema POS -->
+                <div class="bg-brand-dark p-6 rounded-xl border border-gray-800 hover:border-brand-orange transition-colors group">
+                    <div class="w-12 h-12 bg-brand-orange/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-orange transition-colors">
+                        <i class="fa-solid fa-cash-register text-brand-orange group-hover:text-white text-xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-2">Sistema POS Móvil</h4>
+                    <p class="text-gray-400 text-sm">Comandas desde celular o tablet. <br>
+                    • Identificación de Mesa<br>
+                    • Envío directo a cocina<br>
+                    • Cuentas separadas y métricas de ventas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / CTA -->
+    <footer class="bg-brand-dark py-12 border-t border-gray-800" id="contacto">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-title mb-6">¿Listo para hacer ruido?</h2>
+            <p class="text-gray-400 mb-8 max-w-lg mx-auto">Esta propuesta está diseñada para escalar contigo. Comienza con lo visual y expande hacia la automatización.</p>
+            
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+                <button class="bg-brand-orange text-white px-10 py-4 rounded-full font-bold text-lg hover:shadow-lg hover:shadow-brand-orange/50 transition-all w-full md:w-auto">
+                    Aceptar Propuesta
+                </button>
+                <button class="border border-gray-600 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-black transition-all w-full md:w-auto">
+                    Hablar por WhatsApp
+                </button>
+            </div>
+            
+            <div class="mt-12 text-gray-600 text-sm">
+                Diseñado por Noxum Soluciones para <strong>Cerdo Chingón</strong>. <br>
+                © 2025 Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to handle smooth scrolling offset
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
